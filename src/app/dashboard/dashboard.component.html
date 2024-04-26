@@ -1,0 +1,95 @@
+<div class="container">
+    <span class="mt-2 h4 divItem">Executive Dashboard</span>
+    <!-- Calender -->
+    <div class="mt-2 divItem">
+        <mat-card style="width: 300px;">
+            <mat-card-content>
+              <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="startDate" (change)="updateChart()" >
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+            </mat-card-content>
+          </mat-card>
+    </div>
+  
+    <!-- card Item -->
+    <div fxLayout="row" fxLayoutGap="20px" class="mt-2 divItem">
+      <div fxFlex="25">
+        <mat-card class="carditemdata" >
+          <mat-card-content>
+            <span>New Wins</span>
+            <div class="text-center">
+              <p class="nDatashow">230</p>
+              <span class="iconTextColor"><i class="fa fa-arrow-up"></i>
+                25%
+              </span>
+              <p><small>vs previous 30 days</small></p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="25">
+        <mat-card class="carditemdata">
+          <mat-card-content>
+            <span>Trial:Wins Rate</span>
+            <div class="text-center">
+              <p class="nDatashow">9.86 <sup>%</sup></p>
+              <span class="iconTextColor">
+                <i class="fa fa-arrow-up"></i>
+                25%
+              </span>
+              <p><small>vs previous 30 days</small></p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="25">
+        <mat-card class="carditemdata">
+          <mat-card-content>
+            <span>New MRR</span>
+            <div class="text-center">
+              <p class="nDatashow"><sup>$</sup>25,690</p>
+              <span class="iconTextColor">
+                <i class="fa fa-arrow-up"></i>
+                8.7%
+              </span>
+              <p><small>vs previous 30 days</small></p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="25">
+        <mat-card class="carditemdata">
+          <mat-card-content>
+            <span>Page Views</span>
+            <div style="width: 100%;">
+              <canvas id="canvasId" width="400" height="118"></canvas>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  
+    <!-- another 2 chard -->
+    <div fxLayout="row" fxLayoutGap="20px" class="mt-2 divItem">
+      <div fxFlex="50">
+        <mat-card>
+          <mat-card-content>
+            <canvas id="MyChart" width="540" height="300px">{{ chart }}
+            </canvas>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="50">
+        <mat-card>
+          <mat-card-content>
+            <canvas id="canvas" width="600" height="327px">{{ chart }}</canvas>
+          </mat-card-content>
+        </mat-card>
+  
+      </div>
+    </div>
+  </div>
